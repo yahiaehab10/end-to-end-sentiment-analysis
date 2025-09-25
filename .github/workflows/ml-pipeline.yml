@@ -138,7 +138,7 @@ jobs:
           python src/model/register_model.py
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: model-artifacts
           path: |
@@ -158,7 +158,7 @@ jobs:
           bandit -r src/ -f json -o security-report.json || true
 
       - name: Upload security report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: security-report
           path: security-report.json
