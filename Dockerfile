@@ -1,7 +1,7 @@
 # Multi-stage Docker build for sentiment analysis API
 
 # Build stage
-FROM python:3.9-slim AS builder
+FROM python:3.10-slim AS builder
 
 # Set working directory
 WORKDIR /app
@@ -26,7 +26,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r api_requirements.txt
 
 # Production stage
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \

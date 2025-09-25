@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  PYTHON_VERSION: 3.9
+  PYTHON_VERSION: 3.10.12
   MLFLOW_TRACKING_URI: "https://dagshub.com/yahiaehab10/end-to-end-sentiment-analysis.mlflow"
 
 jobs:
