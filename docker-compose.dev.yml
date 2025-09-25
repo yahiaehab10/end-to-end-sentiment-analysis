@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  sentiment-api:
+    volumes:
+      - ./src:/app/src # Mount source for live reloading
+      - ./logs:/app/logs
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=true
+    command: >
+      bash -c "
+        pip install watchdog[watchmedo] &&
+        python -m uvicorn src.api.main:app 
+        --host 0.0.0.0 
+        --port 8000 
+        --reload 
+        --reload-dir /app/src
+      "
+
+  mlflow:
+    environment:
+      - ENVIRONMENT=development
+    volumes:
+      - ./mlruns:/mlflow/mlruns
+      - ./src:/app/src:ro # Mount for development
+
+  # Additional services for development
+  jupyter:
+    image: jupyter/scipy-notebook:latest
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./src:/home/jovyan/work/src:ro
+      - ./data:/home/jovyan/work/data:ro
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    networks:
+      - ml-network
