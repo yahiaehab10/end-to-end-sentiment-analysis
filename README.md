@@ -5,6 +5,7 @@ A complete machine learning pipeline for sentiment analysis with automated train
 ## 🚀 Quick Start
 
 ### Using Docker (Recommended)
+
 ```bash
 # Start development environment
 make dev
@@ -16,6 +17,7 @@ curl -X POST "http://localhost:8000/predict" \
 ```
 
 ### Local Development
+
 ```bash
 # Install dependencies
 make install
@@ -50,12 +52,12 @@ make serve-local
 
 ## 📈 API Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/predict` | POST | Single text prediction |
-| `/predict/batch` | POST | Batch predictions |
-| `/health` | GET | Service health check |
-| `/docs` | GET | Interactive API documentation |
+| Endpoint         | Method | Description                   |
+| ---------------- | ------ | ----------------------------- |
+| `/predict`       | POST   | Single text prediction        |
+| `/predict/batch` | POST   | Batch predictions             |
+| `/health`        | GET    | Service health check          |
+| `/docs`          | GET    | Interactive API documentation |
 
 ## 🔧 Available Commands
 
@@ -71,6 +73,7 @@ make health        # Check service health
 ## 🌐 Services
 
 When running with `make dev`:
+
 - **API**: http://localhost:8000
 - **API Docs**: http://localhost:8000/docs
 - **MLflow UI**: http://localhost:5000
@@ -86,6 +89,7 @@ When running with `make dev`:
 ## 🚀 Deployment
 
 The project includes automated CI/CD pipelines that:
+
 - Run tests and quality checks on every PR
 - Train and register models on main branch updates
 - Build and deploy Docker containers automatically
