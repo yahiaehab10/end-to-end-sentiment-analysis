@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1758811985639
+current_stage: Staging
+description: null
+last_updated_timestamp: 1758811985642
+name: yt_chrome_plugin_model
+run_id: 7989972023814099bff84425267e74ad
+run_link: null
+source: file:///Users/yahiaehab/Workspace/Courses/end-to-end-sentiment-analysis/mlruns/376331238692263654/7989972023814099bff84425267e74ad/artifacts/file:///Users/yahiaehab/Workspace/Courses/end-to-end-sentiment-analysis/mlruns/376331238692263654/7989972023814099bff84425267e74ad/artifacts/lgbm_model
+status: READY
+status_message: null
+storage_location: file:///Users/yahiaehab/Workspace/Courses/end-to-end-sentiment-analysis/mlruns/376331238692263654/7989972023814099bff84425267e74ad/artifacts/file:///Users/yahiaehab/Workspace/Courses/end-to-end-sentiment-analysis/mlruns/376331238692263654/7989972023814099bff84425267e74ad/artifacts/lgbm_model
+user_id: null
+version: 1

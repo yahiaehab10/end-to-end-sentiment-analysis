@@ -5,10 +5,24 @@ import mlflow
 import logging
 import os
 
-# Set up MLflow tracking URI
-mlflow.set_tracking_uri(
-    "https://dagshub.com/yahiaehab10/end-to-end-sentiment-analysis.mlflow"
-)
+
+# Set up MLflow tracking URI with fallback
+def setup_mlflow():
+    """Setup MLflow with remote server fallback to local tracking."""
+    try:
+        mlflow.set_tracking_uri(
+            "https://dagshub.com/yahiaehab10/end-to-end-sentiment-analysis.mlflow"
+        )
+        # Test connection by trying to get default experiment
+        mlflow.get_experiment_by_name("Default")
+        logger.info("Successfully connected to remote MLflow server")
+    except Exception as e:
+        logger.warning(
+            "Could not connect to remote MLflow server: %s. Using local tracking.",
+            e,
+        )
+        # Use local MLflow tracking as fallback
+        mlflow.set_tracking_uri("file:./mlruns")
 
 
 # logging configuration
@@ -68,6 +82,9 @@ def register_model(model_name: str, model_info: dict):
 
 def main():
     try:
+        # Setup MLflow with fallback to local tracking
+        setup_mlflow()
+
         model_info_path = "experiment_info.json"
         model_info = load_model_info(model_info_path)
 

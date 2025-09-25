@@ -125,9 +125,34 @@ def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
 
 
 def main():
-    mlflow.set_tracking_uri("http://ec2-3-84-223-136.compute-1.amazonaws.com:5000/")
+    # Try to use remote MLflow tracking, fallback to local if it fails
+    try:
+        mlflow.set_tracking_uri(
+            "https://dagshub.com/yahiaehab10/end-to-end-sentiment-analysis.mlflow"
+        )
+        # Test connection by trying to get default experiment
+        mlflow.get_experiment_by_name("Default")
+        logger.info("Successfully connected to remote MLflow server")
 
-    mlflow.set_experiment("dvc-pipeline-runs")
+        # Create experiment if it doesn't exist
+        try:
+            experiment = mlflow.get_experiment_by_name("dvc-pipeline-runs")
+            if experiment is None:
+                mlflow.create_experiment("dvc-pipeline-runs")
+            mlflow.set_experiment("dvc-pipeline-runs")
+        except Exception as e:
+            logger.warning(
+                "Could not create/set experiment 'dvc-pipeline-runs': %s. Using default experiment.",
+                e,
+            )
+    except Exception as e:
+        logger.warning(
+            "Could not connect to remote MLflow server: %s. Using local tracking.",
+            e,
+        )
+        # Use local MLflow tracking as fallback
+        mlflow.set_tracking_uri("file:./mlruns")
+        mlflow.set_experiment("dvc-pipeline-runs")
 
     with mlflow.start_run() as run:
         try:

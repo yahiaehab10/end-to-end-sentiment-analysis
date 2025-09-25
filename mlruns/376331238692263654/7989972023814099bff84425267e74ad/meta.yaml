@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/yahiaehab/Workspace/Courses/end-to-end-sentiment-analysis/mlruns/376331238692263654/7989972023814099bff84425267e74ad/artifacts
+end_time: 1758811905727
+entry_point_name: ''
+experiment_id: '376331238692263654'
+lifecycle_stage: active
+run_id: 7989972023814099bff84425267e74ad
+run_name: trusting-quail-549
+run_uuid: 7989972023814099bff84425267e74ad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758811901338
+status: 3
+tags: []
+user_id: yahiaehab
