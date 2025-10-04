@@ -1,17 +1,18 @@
-import numpy as np
-import pandas as pd
-import pickle
+import json
 import logging
-import yaml
+import os
+import pickle
+
+import matplotlib.pyplot as plt
 import mlflow
 import mlflow.sklearn
-from sklearn.metrics import classification_report, confusion_matrix
-from sklearn.feature_extraction.text import TfidfVectorizer
-import os
-import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 import seaborn as sns
-import json
+import yaml
 from mlflow.models import infer_signature
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics import classification_report, confusion_matrix
 
 # logging configuration
 logger = logging.getLogger("model_evaluation")
