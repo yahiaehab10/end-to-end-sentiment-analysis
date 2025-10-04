@@ -2,3 +2,10 @@
 /lgbm_model.pkl
 /tfidf_vectorizer.pkl
 /experiment_info.json
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
