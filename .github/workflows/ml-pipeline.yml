@@ -54,11 +54,15 @@ jobs:
 
       - name: Run tests
         run: |
-          # Create basic tests if they don't exist
           mkdir -p tests
-          if [ ! -f tests/test_basic.py ]; then
-            echo "import sys; import os; sys.path.append('src'); def test_imports(): from data.data_preprocessing import preprocess_text; assert callable(preprocess_text)" > tests/test_basic.py
-          fi
+          cat > tests/test_basic.py << 'TESTEOF'
+          import sys
+          import os
+          sys.path.append('src')
+          def test_imports():
+              from data.data_preprocessing import preprocess_text
+              assert callable(preprocess_text)
+          TESTEOF
           pytest tests/ -v
 
   data-validation:
