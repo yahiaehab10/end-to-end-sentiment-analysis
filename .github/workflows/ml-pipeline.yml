@@ -54,15 +54,15 @@ jobs:
           # Create basic tests if they don't exist
           mkdir -p tests
           if [ ! -f tests/test_basic.py ]; then
-            cat > tests/test_basic.py << 'EOF'
-import sys
-import os
-sys.path.append('src')
-
-def test_imports():
-    from data.data_preprocessing import preprocess_comment
-    assert callable(preprocess_comment)
-EOF
+            printf '%s\n' \
+              'import sys' \
+              'import os' \
+              "sys.path.append('src')" \
+              '' \
+              'def test_imports():' \
+              '    from data.data_preprocessing import preprocess_comment' \
+              '    assert callable(preprocess_comment)' \
+              > tests/test_basic.py
           fi
           pytest tests/ -v
 
