@@ -2,18 +2,19 @@
 FastAPI application for sentiment analysis model serving.
 """
 
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field
-from typing import List, Dict, Any
-import joblib
-import pandas as pd
-import numpy as np
 import logging
 import os
+from contextlib import asynccontextmanager
 from datetime import datetime
+from typing import Any, Dict, List
+
+import joblib
 import mlflow
 import mlflow.sklearn
-from contextlib import asynccontextmanager
+import numpy as np
+import pandas as pd
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, Field
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
