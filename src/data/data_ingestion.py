@@ -1,9 +1,10 @@
+import logging
+import os
+
 import numpy as np
 import pandas as pd
-import os
-from sklearn.model_selection import train_test_split
 import yaml
-import logging
+from sklearn.model_selection import train_test_split
 
 # Logging configuration
 logger = logging.getLogger("data_ingestion")

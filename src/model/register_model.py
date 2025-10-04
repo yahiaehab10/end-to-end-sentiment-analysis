@@ -1,9 +1,10 @@
 # register model
 
 import json
-import mlflow
 import logging
 import os
+
+import mlflow
 
 
 # Set up MLflow tracking URI with fallback
