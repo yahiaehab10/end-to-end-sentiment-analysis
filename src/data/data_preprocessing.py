@@ -66,6 +66,10 @@ def preprocess_comment(comment):
         return comment
 
 
+# Alias for backward compatibility and testing
+preprocess_text = preprocess_comment
+
+
 def normalize_text(df):
     """Apply preprocessing to the text data in the dataframe."""
     try:
